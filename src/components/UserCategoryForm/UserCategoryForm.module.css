@@ -1,0 +1,40 @@
+.category {
+   display: flex;
+   gap: 40px;
+}
+
+.card {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   background: #0d0f11;
+   border-radius: 15px;
+   justify-content: center;
+   align-items: center;
+   width: 290px;
+   height: 290px;
+}
+
+.title {
+   color: #fcba28;
+   font-size: 35px;
+   transition: all 0.5s;
+   margin: 0px;
+}
+
+.title:hover {
+   cursor: default;
+   color: white;
+   transition: all 0.5s;
+}
+
+.subTitle {
+   font-size: 22px;
+   color: white;
+   margin: 0px;
+}
+
+.button {
+   margin-top: 20px;
+   width: 150px;
+}

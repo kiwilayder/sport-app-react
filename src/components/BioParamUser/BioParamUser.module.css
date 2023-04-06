@@ -1,0 +1,22 @@
+.wrapperInfo {
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+}
+
+.userName {
+   font-size: 26px;
+   color: #fcba28;
+   font-weight: bold;
+   transition: all 0.5s;
+}
+
+.userName:hover {
+   color: black;
+   transition: all 0.5s;
+   cursor: default;
+}
+
+.fireCalories {
+   font-size: 20px;
+}

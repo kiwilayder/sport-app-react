@@ -1,0 +1,20 @@
+.form {
+   width: 600px;
+}
+
+.button {
+   width: 150px;
+}
+
+.formItem {
+   margin-bottom: 30px;
+}
+.bgform {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 550px;
+   width: 700px;
+   background: #0d0f11;
+   border-radius: 45px;
+}

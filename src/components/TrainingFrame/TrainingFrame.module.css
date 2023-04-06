@@ -1,0 +1,24 @@
+.mainFrame {
+   width: 1000px;
+   height: 600px;
+   background: #0d0f11;
+   border-radius: 15px;
+}
+
+.frameTop {
+   border-top-left-radius: 15px;
+   border-top-right-radius: 15px;
+   width: 100%;
+   height: 70px;
+   border-bottom: 1px solid rgba(97, 97, 97, 0.3);
+   display: flex;
+   align-items: center;
+   padding: 15px 30px;
+}
+.line {
+   margin-top: 60px;
+   border: 0;
+   height: 0;
+   border-top: 1px solid rgba(0, 0, 0, 0.1);
+   border-bottom: 1px solid rgba(131, 131, 131, 0.3);
+}
