@@ -1,13 +1,9 @@
 import React from "react";
 import { Select, Form, Input, DatePicker, Slider, Button } from "antd";
-import style from "./UserOptionsForm.module.css";
+import style from "./RegistrationForm.module.css";
 
-export const UserOptionsFrom = ({ onFinishForm }) => {
+export const RegistrationForm = ({ onFinishForm }) => {
    const { Option } = Select;
-
-   const onFinishFailed = (errorInfo) => {
-      console.log("Failed:", errorInfo);
-   };
 
    return (
       <div className={style.bgform}>
@@ -24,7 +20,6 @@ export const UserOptionsFrom = ({ onFinishForm }) => {
                maxWidth: 1000,
             }}
             onFinish={onFinishForm}
-            onFinishFailed={onFinishFailed}
             autoComplete="off"
          >
             <Form.Item
@@ -98,7 +93,7 @@ export const UserOptionsFrom = ({ onFinishForm }) => {
             </Form.Item>
             <Form.Item
                className={style.formItem}
-               name="sliderWeight"
+               name="userWeight"
                label="Ваш вес (кг) "
                rules={[
                   {
@@ -111,7 +106,7 @@ export const UserOptionsFrom = ({ onFinishForm }) => {
             </Form.Item>
             <Form.Item
                className={style.formItem}
-               name="sliderHeight"
+               name="userHeight"
                label="Ваш рост (см) "
                rules={[
                   {

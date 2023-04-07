@@ -1,17 +1,17 @@
 import React from "react";
-import { Header } from "../Header/Header";
+import { Header } from "../../ui/Header/Header";
 import { Layout } from "antd";
-import style from "./SportRoomUser.module.css";
-import { TrainingFrame } from "../TrainingFrame/TrainingFrame";
+import style from "./UserSportRoom.module.css";
+import { SportFrameContainer } from "../../features/SportFrame/SportFrameContainer";
 
-export const SportRoomUser = () => {
+export const UserSportRoom = () => {
    const { Content } = Layout;
    return (
       <Layout className={style.layout}>
          <Header statusAuthButton={true} isGetButton={false} />
 
          <Content className={style.content}>
-            <TrainingFrame />
+            <SportFrameContainer />
          </Content>
       </Layout>
    );

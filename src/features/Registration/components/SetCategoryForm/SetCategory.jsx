@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import style from "./UserCategoryForm.module.css";
+import style from "./SetCategory.module.css";
 import { Button } from "antd";
 import { Navigate } from "react-router-dom";
 
-export const UserCategoryForm = ({ setCategory }) => {
+export const SetCategory = ({ setCategory }) => {
    const [onFinishCategory, setOnFinishCategory] = useState(false);
 
    const onChangeCategory = (category) => {

@@ -1,17 +1,17 @@
 import React from "react";
-import style from "./TrainingFrame.module.css";
+import style from "./SportFrameContainer.module.css";
 import { Avatar, Space } from "antd";
-import defaultUser from "../../common/no-user-yellow.png";
-import cat from "../../common/кит.png";
-import { DrawerUser } from "../DrawerUser/DrawerUser";
+import defaultUser from "../../assets/no-user-yellow.png";
+import cat from "../../assets/кит.png";
+import { DrawerUserContainer } from "../UserInfoDrawer/DrawerUserContainer";
 
-export const TrainingFrame = () => {
+export const SportFrameContainer = () => {
    return (
       <div className={style.mainFrame}>
          <div className={style.frameTop}>
             <Space size={"middle"}>
                <Avatar shape="circle" size={"large"} src={cat} />
-               <DrawerUser />
+               <DrawerUserContainer />
             </Space>
          </div>
       </div>

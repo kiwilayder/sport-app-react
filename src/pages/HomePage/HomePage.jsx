@@ -2,7 +2,7 @@ import React from "react";
 import style from "./HomePage.module.css";
 import { Layout } from "antd";
 import { NavLink } from "react-router-dom";
-import { Header } from "../Header/Header";
+import { Header } from "../../ui/Header/Header";
 
 const { Content } = Layout;
 
