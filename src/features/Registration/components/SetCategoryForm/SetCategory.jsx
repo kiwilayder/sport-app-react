@@ -1,25 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import style from "./SetCategory.module.css";
 import { Button } from "antd";
-import { Navigate } from "react-router-dom";
 
 export const SetCategory = ({ setCategory }) => {
-   const [onFinishCategory, setOnFinishCategory] = useState(false);
-
-   const onChangeCategory = (category) => {
-      setCategory(category);
-      setOnFinishCategory(true);
-   };
-
-   if (onFinishCategory) return <Navigate to={"/sportroom"} />;
-
    return (
       <div className={style.category}>
          <div className={style.card}>
             <h2 className={style.title}>Начинающий</h2>
             <p className={style.subTitle}>15 минут в день</p>
             <Button
-               onClick={() => onChangeCategory("easy")}
+               onClick={() => setCategory("easy")}
                className={style.button}
                type="primary"
                htmlType="submit"
@@ -31,7 +21,7 @@ export const SetCategory = ({ setCategory }) => {
             <h2 className={style.title}>Бывалый</h2>
             <p className={style.subTitle}>25 минут в день</p>
             <Button
-               onClick={() => onChangeCategory("medium")}
+               onClick={() => setCategory("medium")}
                className={style.button}
                type="primary"
                htmlType="submit"
@@ -43,7 +33,7 @@ export const SetCategory = ({ setCategory }) => {
             <h2 className={style.title}>Спортсмен</h2>
             <p className={style.subTitle}>40 минут в день</p>
             <Button
-               onClick={() => onChangeCategory("hard")}
+               onClick={() => setCategory("hard")}
                className={style.button}
                type="primary"
                htmlType="submit"

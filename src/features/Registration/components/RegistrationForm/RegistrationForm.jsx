@@ -122,7 +122,7 @@ export const RegistrationForm = ({ onFinishForm }) => {
                   push: 15,
                }}
             >
-               <Button className={style.button} type="primary" htmlType="submit">
+               <Button className={style.button} htmlType="submit">
                   Далее...
                </Button>
             </Form.Item>

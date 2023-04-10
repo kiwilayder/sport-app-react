@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import style from "./UserParam.module.css";
 import { InputNumber } from "antd";
 
-export const UserParam = ({ userHeight, userWeight, onChangeWeight, onChangeHeight }) => {
+export const UserParam = ({ userHeight, userWeight, onChangeWeight, onChangeHeight, valueIndex }) => {
    const [showHeight, setShowHeight] = useState(false);
    const [showWeight, setShowWeight] = useState(false);
 
    return (
       <div className={style.blockParam}>
          <div className={style.item}>
-            <span className={style.subTitle}>Рост: {userHeight}</span>
+            Рост: {userHeight}
             {showHeight ? (
                <InputNumber
                   autoFocus={true}
@@ -26,7 +26,7 @@ export const UserParam = ({ userHeight, userWeight, onChangeWeight, onChangeHeig
             )}
          </div>
          <div className={style.item}>
-            <span className={style.subTitle}>Вес: {userWeight}</span>
+            Вес: {userWeight}
             {showWeight ? (
                <InputNumber
                   autoFocus={true}
@@ -42,6 +42,8 @@ export const UserParam = ({ userHeight, userWeight, onChangeWeight, onChangeHeig
                </span>
             )}
          </div>
+
+         <div className={style.item}>Индекс тела: {valueIndex}</div>
       </div>
    );
 };

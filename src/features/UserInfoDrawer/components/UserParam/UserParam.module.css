@@ -1,8 +1,6 @@
 .blockParam {
    border-radius: 16px;
    padding: 10px;
-   margin-top: 13px;
-   width: 100%;
    display: flex;
    flex-direction: column;
    justify-content: start;
@@ -14,6 +12,8 @@
    display: flex;
    align-items: center;
    gap: 10px;
+   font-size: 20px;
+   color: rgba(255, 255, 255, 0.85);
 }
 
 .showInput {
@@ -21,8 +21,4 @@
    font-size: 15px;
    color: #fcba28;
    cursor: pointer;
-}
-
-.subTitle {
-   font-size: 20px;
 }

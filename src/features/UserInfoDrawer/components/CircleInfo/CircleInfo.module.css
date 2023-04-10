@@ -6,17 +6,11 @@
 
 .userName {
    font-size: 26px;
-   color: #fcba28;
+   color: rgba(255, 255, 255, 0.85);
    font-weight: bold;
-   transition: all 0.5s;
-}
-
-.userName:hover {
-   color: black;
-   transition: all 0.5s;
-   cursor: default;
 }
 
 .fireCalories {
    font-size: 20px;
+   color: rgba(255, 255, 255, 0.85);
 }

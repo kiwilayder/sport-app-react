@@ -1,16 +1,19 @@
-import { Button, Drawer } from "antd";
-import React, { useState } from "react";
+import { Drawer, Space } from "antd";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CircleInfo } from "./components/CircleInfo/CircleInfo";
 import { UserParam } from "./components/UserParam/UserParam";
-import { BodyMassIndex } from "./components/BodyMassIndex/BodyMassIndex";
+import { BodyMass } from "./components/BodyMass/BodyMass";
 import { updateHeight, updateWeight } from "../../store/userSlice";
+import { excessWeight, indexMassBody } from "./helpers/indexMassBody";
 
-export const DrawerUserContainer = () => {
-   const [open, setOpen] = useState(false);
+export const DrawerUserContainer = ({ openDrawer, setOpenDrawer }) => {
    const userName = useSelector((state) => state.userData.userName);
    const userHeight = useSelector((state) => state.userData.userHeight);
    const userWeight = useSelector((state) => state.userData.userWeight);
+
+   const [textIndex, valueIndex, typeAlert] = indexMassBody(userHeight, userWeight);
+   const surplus = excessWeight(userHeight, userWeight, valueIndex);
 
    const dispatch = useDispatch();
    const onChangeHeight = (valueHeight) => {
@@ -21,18 +24,20 @@ export const DrawerUserContainer = () => {
    };
 
    return (
-      <>
-         <Button type="primary" onClick={() => setOpen(true)}>
-            Мои параметры
-         </Button>
-
-         <Drawer
-            title="Мои параметры"
-            placement={"right"}
-            width={500}
-            onClose={() => setOpen(false)}
-            open={open}
-            extra={<></>}
+      <Drawer
+         title="Мои параметры"
+         placement={"right"}
+         width={500}
+         onClose={() => setOpenDrawer(false)}
+         open={openDrawer}
+         extra={<></>}
+      >
+         <Space
+            style={{
+               width: "100%",
+            }}
+            direction={"vertical"}
+            size={"middle"}
          >
             <CircleInfo userName={userName} />
             <UserParam
@@ -40,9 +45,10 @@ export const DrawerUserContainer = () => {
                userHeight={userHeight}
                onChangeHeight={onChangeHeight}
                onChangeWeight={onChangeWeight}
+               valueIndex={valueIndex}
             />
-            <BodyMassIndex bodyHeight={userHeight} bodyWeight={userWeight} />
-         </Drawer>
-      </>
+            <BodyMass textIndex={textIndex} surplus={surplus} typeAlert={typeAlert} />
+         </Space>
+      </Drawer>
    );
 };
