@@ -1,0 +1,54 @@
+.sign {
+   color: #fff;
+   font-size: 50px;
+   width: 120px;
+   height: 120px;
+   border-radius: 50%;
+   border: 2px solid #fcba28;
+   background-color: transparent;
+   cursor: pointer;
+   font-weight: bold;
+   transition: 0.5s all;
+}
+
+.sign:hover {
+   background: #fcba28;
+   border: 0px;
+   transition: 0.5s all;
+}
+.count {
+   color: #fcba28;
+   font-size: 100px;
+}
+
+.mainText {
+   margin-top: 40px;
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   height: 35%;
+}
+
+.mainFrame {
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   align-items: center;
+}
+
+.title {
+   color: #fcba28;
+   font-size: 40px;
+   margin: 0px 0 10px 0;
+}
+
+.subTitle {
+   color: rgba(255, 255, 255, 0.85);
+   font-size: 20px;
+}
+
+.button {
+   width: 170px;
+   height: 40px;
+   margin-top: 50px;
+}

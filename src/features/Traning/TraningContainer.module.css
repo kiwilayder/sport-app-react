@@ -1,0 +1,58 @@
+.trening {
+   display: flex;
+   flex-direction: column;
+   height: 100%;
+   width: 100%;
+   padding: 20px;
+   gap: 5px;
+}
+
+.dayBlock {
+   display: flex;
+   align-items: center;
+   height: 25%;
+   padding: 20px;
+   background: #2b221354;
+   border-radius: 16px;
+   justify-content: space-between;
+   border-bottom: solid 1px #fcba28;
+}
+.dayBlock:hover {
+   background: #2b2213a8;
+   cursor: pointer;
+   transition: all 0.5s;
+}
+
+.finalTest {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 30px;
+   height: 25%;
+   padding: 20px;
+   background: #2b221354;
+   border-radius: 16px;
+}
+
+.day {
+   color: #fcba28;
+   font-size: 20px;
+}
+
+.repeats {
+   display: flex;
+   flex-direction: row;
+}
+
+.test {
+   width: 210px;
+   height: 50px;
+   font-size: 20px;
+}
+
+.rest {
+   color: rgba(255, 255, 255, 0.85);
+   text-align: center;
+   font-style: italic;
+   margin-top: 5px;
+}

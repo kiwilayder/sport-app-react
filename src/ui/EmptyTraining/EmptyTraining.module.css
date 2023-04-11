@@ -1,0 +1,13 @@
+.empty {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+}
+
+.text {
+   font-size: 40px;
+   font-weight: bold;
+   font-style: italic;
+   color: #272727;
+}

@@ -1,0 +1,5 @@
+.menu {
+   display: flex;
+   border-bottom-left-radius: 16px;
+   background: #141414;
+}
