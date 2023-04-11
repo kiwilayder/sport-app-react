@@ -23,19 +23,25 @@ export const TraningContainer = ({ type, textTraning }) => {
             <span className={style.day}>День 1</span>
             <div className={style.repeats}>{arr}</div>
          </div>
+
          <span className={style.rest}>Отдых 1 день</span>
+
          <div className={style.dayBlock}>
             <span className={style.day}>День 2</span>
             <div className={style.repeats}>{arr}</div>
          </div>
+
          <span className={style.rest}>Отдых 1 день</span>
+
          <div className={style.dayBlock}>
             <span className={style.day}>День 3</span>
             <div className={style.repeats}>{arr}</div>
          </div>
+
          <span className={style.rest}>Отдых 1 день</span>
+
          <div className={style.finalTest}>
-            <Button className={style.test}>Итоговый тест</Button>
+            <Button className={style.buttonTest}>Итоговый тест</Button>
          </div>
       </div>
    );

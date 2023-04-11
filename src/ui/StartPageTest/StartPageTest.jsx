@@ -1,7 +1,7 @@
 import { Button } from "antd";
 import React, { useState } from "react";
 import style from "./StartPageTest.module.css";
-import { TestWorkout } from "../../features/Traning/TestWorkout/TestWorkout";
+import { TestWorkout } from "../../features/Traning/components/TestWorkout/TestWorkout";
 
 export const StartPageTest = ({ textTraning, setInitialValue }) => {
    const [testWorkout, setTestWorkout] = useState(false);

@@ -3,24 +3,15 @@
    flex-direction: column;
    height: 100%;
    width: 100%;
-   padding: 20px;
-   gap: 5px;
+   padding: 15px;
 }
 
 .dayBlock {
    display: flex;
    align-items: center;
    height: 25%;
-   padding: 20px;
-   background: #2b221354;
-   border-radius: 16px;
+   padding: 10px;
    justify-content: space-between;
-   border-bottom: solid 1px #fcba28;
-}
-.dayBlock:hover {
-   background: #2b2213a8;
-   cursor: pointer;
-   transition: all 0.5s;
 }
 
 .finalTest {
@@ -30,29 +21,53 @@
    padding: 30px;
    height: 25%;
    padding: 20px;
-   background: #2b221354;
-   border-radius: 16px;
 }
 
 .day {
+   display: flex;
+   justify-content: center;
+   align-items: center;
    color: #fcba28;
+   cursor: pointer;
    font-size: 20px;
+   font-weight: bold;
+   border: solid 2px #fcba28;
+   height: 100px;
+   width: 100px;
+   border-radius: 50%;
+   transition: all 0.5s;
+}
+
+.day:hover {
+   color: #0d0f11;
+   background: #fcba28;
+   transition: all 0.5s;
+}
+
+.buttonTest {
+   width: 210px;
+   height: 50px;
+   font-size: 15px;
 }
 
 .repeats {
    display: flex;
-   flex-direction: row;
-}
-
-.test {
-   width: 210px;
-   height: 50px;
-   font-size: 20px;
 }
 
 .rest {
-   color: rgba(255, 255, 255, 0.85);
-   text-align: center;
+   display: grid;
    font-style: italic;
-   margin-top: 5px;
+   grid-template-columns: 1fr 0.4fr 1fr;
+   align-items: center;
+   color: #fcba28;
+   font-size: 15px;
+   text-align: center;
+}
+
+.rest:before,
+.rest:after {
+   content: "";
+   height: 1px;
+   background-color: rgba(255, 255, 255, 0.85);
+   display: block;
 }
