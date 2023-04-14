@@ -4,7 +4,7 @@ const userTraningSlice = createSlice({
    name: "userTraning",
    initialState: {
       userId: null,
-      maxPushUps: null,
+      maxPushUps: 100,
    },
    reducers: {
       addMaxValue(state, action) {

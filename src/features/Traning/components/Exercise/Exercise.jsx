@@ -5,26 +5,29 @@ import { Button } from "antd";
 
 export const Exercise = ({ exercise }) => {
    const [current, setCurrent] = useState(0);
-   const [count, setCount] = useState(null);
+   const [count, setCount] = useState(exercise);
 
-   useEffect(() => {
-      setCount(exercise[current]);
-   }, [current]);
+   console.log(count);
 
    return (
       <div className={style.mainFrame}>
          <h1 className={style.text}>Тренировка</h1>
          <div className={style.trening}>
             <div className={style.countFrame}>
-               <button onClick={() => setCount((prev) => --prev)} className={style.sign}>
+               <button onClick={() => setCount((prev) => [...prev], --count[current])} className={style.sign}>
                   -
                </button>
-               <div className={style.count}>{count}</div>
-               <button onClick={() => setCount((prev) => ++prev)} className={style.sign}>
+
+               <div className={style.count}>{count[current]}</div>
+
+               <button onClick={() => setCount((prev) => [...prev], ++count[current])} className={style.sign}>
                   +
                </button>
             </div>
-            <Button onClick={() => setCurrent((prev) => ++prev)} className={style.ready}>
+            <Button
+               onClick={() => setCurrent((prev) => (prev === count.length - 1 ? prev : ++prev))}
+               className={style.ready}
+            >
                Готово
             </Button>
 
