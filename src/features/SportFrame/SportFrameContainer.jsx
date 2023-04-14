@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import style from "./SportFrameContainer.module.css";
 import { SportFrameHeader } from "./components/SportFrameHeader/SportFrameHeader";
 import { SportFrameMenu } from "./components/SportFrameMenu/SportFrameMenu";
-import { EmptyTraning } from "../../ui/EmptyTraining/EmptyTraining";
+import { EmptyTraning } from "../Traning/components/EmptyTraining/EmptyTraining";
 import { TraningContainer } from "../Traning/TraningContainer";
 
 export const SportFrameContainer = ({ setOpenDrawer }) => {

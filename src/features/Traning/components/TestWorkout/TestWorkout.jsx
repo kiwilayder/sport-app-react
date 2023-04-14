@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import style from "./TestWorkout.module.css";
 import { Button, Space } from "antd";
 
-export const TestWorkout = ({ textTraning, setInitialValue }) => {
+export const TestWorkout = ({ textTraning, setMaxValue }) => {
    const [count, setCount] = useState(0);
    return (
       <div className={style.mainFrame}>
@@ -20,7 +20,7 @@ export const TestWorkout = ({ textTraning, setInitialValue }) => {
                +
             </button>
          </Space>
-         <Button onClick={() => setInitialValue(count)} className={style.button}>
+         <Button onClick={() => setMaxValue(count)} className={style.button}>
             Готово
          </Button>
       </div>

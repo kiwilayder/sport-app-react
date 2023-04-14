@@ -4,14 +4,14 @@ const userTraningSlice = createSlice({
    name: "userTraning",
    initialState: {
       userId: null,
-      initialPushUps: null,
+      maxPushUps: null,
    },
    reducers: {
-      addInitial(state, action) {
-         state.initialPushUps = action.payload.value;
+      addMaxValue(state, action) {
+         state.maxPushUps = action.payload.value;
       },
    },
 });
 
-export const { addInitial } = userTraningSlice.actions;
+export const { addMaxValue } = userTraningSlice.actions;
 export default userTraningSlice.reducer;

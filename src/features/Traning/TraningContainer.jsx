@@ -1,48 +1,24 @@
 import React from "react";
-import { StartPageTest } from "../../ui/StartPageTest/StartPageTest";
+import { StartTest } from "./components/StartTest/StartTest";
 import { useDispatch, useSelector } from "react-redux";
-import { addInitial } from "../../store/userTraningSlice";
-import style from "./TraningContainer.module.css";
-import { Repeats } from "./components/Repeats/Repeats";
-import { Button } from "antd";
+import { addMaxValue } from "../../store/userTraningSlice";
+import { message } from "antd";
+import { StartTrening } from "./components/StartTrening/StartTrening";
+import { calkTrening } from "./helpers/calcTrening";
 
 export const TraningContainer = ({ type, textTraning }) => {
-   const initialValue = useSelector((state) => state.userTraningData["initial" + type]);
+   const maxValue = useSelector((state) => state.userTraningData["max" + type]);
    const dispatch = useDispatch();
 
-   const setInitialValue = (value) => {
-      dispatch(addInitial({ value }));
+   const setMaxValue = (value) => {
+      dispatch(addMaxValue({ value }));
+      message.success("Тренировка создана!", [1.5]);
    };
 
-   const arr = [1, 2, 3, 4, 5].map((item) => <Repeats repeats={item} />);
+   if (maxValue) {
+      const approach = calkTrening(maxValue);
+      return <StartTrening approach={approach} />;
+   }
 
-   if (!initialValue) return <StartPageTest setInitialValue={setInitialValue} textTraning={textTraning} />;
-   return (
-      <div className={style.trening}>
-         <div className={style.dayBlock}>
-            <span className={style.day}>День 1</span>
-            <div className={style.repeats}>{arr}</div>
-         </div>
-
-         <span className={style.rest}>Отдых 1 день</span>
-
-         <div className={style.dayBlock}>
-            <span className={style.day}>День 2</span>
-            <div className={style.repeats}>{arr}</div>
-         </div>
-
-         <span className={style.rest}>Отдых 1 день</span>
-
-         <div className={style.dayBlock}>
-            <span className={style.day}>День 3</span>
-            <div className={style.repeats}>{arr}</div>
-         </div>
-
-         <span className={style.rest}>Отдых 1 день</span>
-
-         <div className={style.finalTest}>
-            <Button className={style.buttonTest}>Итоговый тест</Button>
-         </div>
-      </div>
-   );
+   return <StartTest setMaxValue={setMaxValue} textTraning={textTraning} />;
 };
