@@ -12,7 +12,7 @@ const getItem = (label, key, icon, children, type) => {
    };
 };
 
-const items = [getItem("Отжимания", "PushUps", <SettingOutlined />)];
+const items = [getItem("Отжимания", "pushUps", <SettingOutlined />)];
 
 export const SportFrameMenu = ({ changeWorkout }) => (
    <div className={style.menu}>

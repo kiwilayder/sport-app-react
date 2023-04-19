@@ -30,6 +30,20 @@
    display: flex;
    justify-content: center;
    align-items: center;
+   color: #272727;
+   font-size: 20px;
+   font-weight: bold;
+   border: solid 2px #272727;
+   height: 100px;
+   width: 100px;
+   border-radius: 50%;
+   transition: all 0.5s;
+}
+
+.dayActive {
+   display: flex;
+   justify-content: center;
+   align-items: center;
    color: #fcba28;
    cursor: pointer;
    font-size: 20px;
@@ -41,7 +55,7 @@
    transition: all 0.5s;
 }
 
-.day:hover {
+.dayActive:hover {
    color: #0d0f11;
    background: #fcba28;
    transition: all 0.5s;

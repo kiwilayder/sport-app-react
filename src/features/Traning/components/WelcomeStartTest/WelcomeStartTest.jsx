@@ -1,11 +1,11 @@
 import { Button } from "antd";
 import React, { useState } from "react";
-import style from "./StartTest.module.css";
+import style from "./WelcomeStartTest.module.css";
 import { TestWorkout } from "../TestWorkout/TestWorkout";
 
-export const StartTest = ({ textTraning, setMaxValue }) => {
+export const WelcomeStartTest = ({ setMaxValue }) => {
    const [testWorkout, setTestWorkout] = useState(false);
-   if (testWorkout) return <TestWorkout setMaxValue={setMaxValue} textTraning={textTraning} />;
+   if (testWorkout) return <TestWorkout setMaxValue={setMaxValue} />;
    return (
       <div className={style.main}>
          <h1 className={style.welcome}>Добро пожаловать</h1>

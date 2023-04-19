@@ -12,4 +12,22 @@
    border: solid 2px #fcba28;
    color: rgba(255, 255, 255, 0.85);
    margin: 0 10px;
+   transition: all 0.5s;
+}
+
+.circleActive {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   font-size: 20px;
+   width: 50px;
+   height: 50px;
+   border-radius: 50%;
+   padding: 5px;
+   background: #fcba28;
+   border: solid 2px #fcba28;
+   color: rgba(255, 255, 255, 0.85);
+   margin: 0 10px;
+   transition: all 0.5s;
 }

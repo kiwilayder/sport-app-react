@@ -1,0 +1,19 @@
+.ready {
+   width: 150px;
+   height: 40px;
+   font-size: 15px;
+}
+
+.timer {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   height: 100%;
+}
+
+.buttonGroup {
+   display: flex;
+   margin-top: 35px;
+   gap: 10px;
+}
