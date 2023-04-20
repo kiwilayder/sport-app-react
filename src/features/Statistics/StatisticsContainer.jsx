@@ -26,7 +26,7 @@ export const DemoLine = () => {
       },
       {
          year: "6",
-         value: 15,
+         value: 14,
       },
    ];
 
