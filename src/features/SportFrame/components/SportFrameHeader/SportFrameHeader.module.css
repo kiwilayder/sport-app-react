@@ -8,3 +8,9 @@
    align-items: center;
    padding: 15px 30px;
 }
+
+.userName {
+   font-size: 20px;
+   color: rgba(255, 255, 255, 0.85);
+   font-weight: bold;
+}
