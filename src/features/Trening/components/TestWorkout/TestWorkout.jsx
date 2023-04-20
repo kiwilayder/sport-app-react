@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import style from "./TestWorkout.module.css";
-import { Button, Space } from "antd";
+import { Button, InputNumber, Space } from "antd";
 
-export const TestWorkout = ({ setTest = null, setMaxValue }) => {
+export const TestWorkout = ({ setTest, setMaxValue }) => {
    const [count, setCount] = useState(0);
+   const [showInput, setShowInput] = useState(false);
 
    const finish = (count) => {
       setMaxValue(count);
-      setTest(false);
+      if (setTest) setTest(false);
    };
 
    return (
@@ -16,16 +17,32 @@ export const TestWorkout = ({ setTest = null, setMaxValue }) => {
             <h1 className={style.title}>Тест на выносливость</h1>
             <span className={style.subTitle}>Выполните максимальное количество повторений</span>
          </div>
-
-         <Space size={70}>
+         <div className={style.changeCount}>
             <button onClick={() => setCount((prev) => (prev === 0 ? prev : --prev))} className={style.sign}>
                -
             </button>
-            <div className={style.count}>{count}</div>
+
+            {showInput ? (
+               <InputNumber
+                  className={style.input}
+                  onPressEnter={() => setShowInput(false)}
+                  autoFocus={true}
+                  onBlur={() => setShowInput(false)}
+                  min={0}
+                  max={200}
+                  size={"large"}
+                  onChange={(e) => setCount(e)}
+               />
+            ) : (
+               <div onClick={() => setShowInput(true)} className={style.count}>
+                  {count}
+               </div>
+            )}
+
             <button onClick={() => setCount((prev) => ++prev)} className={style.sign}>
                +
             </button>
-         </Space>
+         </div>
          <Button onClick={() => finish(count)} className={style.button}>
             Готово
          </Button>

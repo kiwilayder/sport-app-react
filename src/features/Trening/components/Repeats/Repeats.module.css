@@ -11,8 +11,7 @@
    background: transparent;
    border: solid 2px #fcba28;
    color: rgba(255, 255, 255, 0.85);
-   margin: 0 10px;
-   transition: all 0.5s;
+   margin: 0 5px;
 }
 
 .circleActive {
@@ -28,6 +27,5 @@
    background: #fcba28;
    border: solid 2px #fcba28;
    color: rgba(255, 255, 255, 0.85);
-   margin: 0 10px;
-   transition: all 0.5s;
+   margin: 0 5px;
 }

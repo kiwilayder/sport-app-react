@@ -5,7 +5,7 @@ const userTraningSlice = createSlice({
    initialState: {
       userId: null,
       pushUps: {
-         maxValue: 100,
+         maxValue: null,
          dayProgress: 0,
       },
    },
@@ -16,8 +16,11 @@ const userTraningSlice = createSlice({
       updateDayProgress(state, action) {
          state[action.payload.type].dayProgress += action.payload.day;
       },
+      clearDayProgress(state, action) {
+         state[action.payload.type].dayProgress = 0;
+      },
    },
 });
 
-export const { updateMaxValue, updateDayProgress } = userTraningSlice.actions;
+export const { updateMaxValue, updateDayProgress, clearDayProgress } = userTraningSlice.actions;
 export default userTraningSlice.reducer;

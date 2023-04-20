@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import style from "./SportFrameContainer.module.css";
 import { SportFrameHeader } from "./components/SportFrameHeader/SportFrameHeader";
 import { SportFrameMenu } from "./components/SportFrameMenu/SportFrameMenu";
-import { EmptyTraning } from "../Traning/components/EmptyTraining/EmptyTraining";
-import { TraningContainer } from "../Traning/TraningContainer";
+import { EmptyTrening } from "../Trening/components/EmptyTrening/EmptyTrening";
+import { TreningContainer } from "../Trening/TreningContainer";
 
 export const SportFrameContainer = ({ setOpenDrawer }) => {
    const [typeWorkout, setTypeWorkout] = useState(null);
 
    const changeWorkout = (e) => {
-      setTypeWorkout([e.key, "отжиманий"]);
+      setTypeWorkout(e.key);
    };
 
    return (
@@ -17,11 +17,7 @@ export const SportFrameContainer = ({ setOpenDrawer }) => {
          <SportFrameHeader setOpenDrawer={setOpenDrawer} />
          <div className={style.traningWindow}>
             <SportFrameMenu changeWorkout={changeWorkout} />
-            {typeWorkout ? (
-               <TraningContainer type={typeWorkout[0]} textTraning={typeWorkout[1]} />
-            ) : (
-               <EmptyTraning />
-            )}
+            {typeWorkout ? <TreningContainer type={typeWorkout} /> : <EmptyTrening />}
          </div>
       </div>
    );

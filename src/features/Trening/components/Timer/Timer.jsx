@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import style from "./Timer.module.css";
 import { Button, Progress } from "antd";
 
-export const Timer = ({ time = 90, setTimer }) => {
+export const Timer = ({ time, setTimer }) => {
    const [startSeconds, setStartSeconds] = useState(time);
    const circlePersent = startSeconds / (time / 100);
 

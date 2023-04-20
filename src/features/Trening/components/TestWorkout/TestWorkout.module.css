@@ -19,6 +19,8 @@
 .count {
    color: #fcba28;
    font-size: 100px;
+   margin: 0 50px;
+   cursor: pointer;
 }
 
 .mainText {
@@ -50,5 +52,20 @@
 .button {
    width: 170px;
    height: 40px;
-   margin-top: 50px;
+   margin-top: 70px;
+}
+
+.input {
+   margin: 0 36px;
+   height: 90px;
+   width: 140px;
+   font-size: 50px;
+   padding-top: 25px;
+}
+
+.changeCount {
+   height: 90px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }

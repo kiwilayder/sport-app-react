@@ -1,7 +1,7 @@
 import React from "react";
-import style from "./EmptyTraining.module.css";
+import style from "./EmptyTrening.module.css";
 
-export const EmptyTraning = () => {
+export const EmptyTrening = () => {
    return (
       <div className={style.empty}>
          <span className={style.text}>Выбирите тренировку...</span>
