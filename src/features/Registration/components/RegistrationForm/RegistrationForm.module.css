@@ -1,19 +1,24 @@
 .form {
    width: 600px;
+   display: flex;
+   flex-direction: column;
 }
 
 .button {
    width: 150px;
 }
 
-.formItem {
-   margin-bottom: 30px;
+.btnSubmit {
+   display: flex;
+   align-items: center;
+   justify-content: center;
 }
+
 .bgform {
    display: flex;
    justify-content: center;
    align-items: center;
-   height: 550px;
+   height: 60%;
    width: 700px;
    background: #0d0f11;
    border-radius: 45px;

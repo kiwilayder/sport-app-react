@@ -11,10 +11,10 @@ export const SportFrameContainer = ({ setOpenDrawer }) => {
    const userName = useSelector((state) => state.userData.userName);
    const [component, setComponent] = useState(<EmptyTrening />);
 
-   const changeWorkout = (e) => {
-      switch (e.key) {
+   const changeWorkout = (key) => {
+      switch (key) {
          case "pushUps":
-            setComponent(<TreningContainer type={e.key} />);
+            setComponent(<TreningContainer type={key} />);
             break;
 
          case "stat":

@@ -21,7 +21,7 @@ const items = [
 export const SportFrameMenu = ({ changeWorkout }) => (
    <div className={style.menu}>
       <Menu
-         onClick={changeWorkout}
+         onClick={(e) => changeWorkout(e.key)}
          style={{
             width: 200,
             flex: "auto",

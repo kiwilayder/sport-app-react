@@ -10,7 +10,7 @@ export const UserSportRoom = () => {
    const { Content } = Layout;
    return (
       <Layout className={style.layout}>
-         <Header statusAuthButton={true} isGetButton={false} />
+         <Header />
 
          <Content className={style.content}>
             <SportFrameContainer setOpenDrawer={setOpenDrawer} />

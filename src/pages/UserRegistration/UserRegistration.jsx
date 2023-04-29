@@ -9,7 +9,7 @@ export const UserRegistration = () => {
 
    return (
       <Layout className={style.layout}>
-         <Header isGetButton={false} />
+         <Header />
 
          <Content className={style.content}>
             <RegistrationContainer />

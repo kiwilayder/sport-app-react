@@ -17,7 +17,7 @@ export const RegistrationForm = ({ onFinishForm }) => {
                span: 15,
             }}
             style={{
-               maxWidth: 1000,
+               mixWidth: 1000,
             }}
             onFinish={onFinishForm}
             autoComplete="off"
@@ -35,33 +35,7 @@ export const RegistrationForm = ({ onFinishForm }) => {
             >
                <Input />
             </Form.Item>
-            <Form.Item
-               className={style.formItem}
-               label="Почта"
-               name="mail"
-               rules={[
-                  {
-                     required: true,
-                     message: "Пожалуйста, введите почту",
-                  },
-               ]}
-            >
-               <Input />
-            </Form.Item>
 
-            <Form.Item
-               className={style.formItem}
-               label="Пароль"
-               name="password"
-               rules={[
-                  {
-                     required: true,
-                     message: "Пожалуйста, введите пароль",
-                  },
-               ]}
-            >
-               <Input.Password />
-            </Form.Item>
             <Form.Item
                className={style.formItem}
                name="gender"
@@ -117,15 +91,11 @@ export const RegistrationForm = ({ onFinishForm }) => {
             >
                <Slider min={100} max={210} />
             </Form.Item>
-            <Form.Item
-               wrapperCol={{
-                  push: 15,
-               }}
-            >
+            <div className={style.btnSubmit}>
                <Button className={style.button} htmlType="submit">
                   Далее...
                </Button>
-            </Form.Item>
+            </div>
          </Form>
       </div>
    );

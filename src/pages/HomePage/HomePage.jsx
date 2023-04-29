@@ -9,7 +9,7 @@ const { Content } = Layout;
 export const HomePage = () => {
    return (
       <Layout className={style.layout}>
-         <Header />
+         <Header getButton={true} />
 
          <Content className={style.content}>
             <span className={style.slogan}>Будьте последовательны, это путь к успеху</span>

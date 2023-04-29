@@ -1,24 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { WelcomeStartTest } from "./components/WelcomeStartTest/WelcomeStartTest";
 import { useDispatch, useSelector } from "react-redux";
-import { updateDayProgress, clearDayProgress, updateMaxValue } from "../../store/userTraningSlice";
 import { message } from "antd";
 import { StartTrening } from "./components/StartTrening/StartTrening";
 import { calkApproach, calkRest } from "./helpers/calcTrening";
+import { getDataTrening, setLocalDayProgress, setLocalMaxValue } from "../../actions/localUserTrening";
 
 export const TreningContainer = ({ type }) => {
-   const dataTrening = useSelector((state) => state.userTraningData[type]);
-
    const dispatch = useDispatch();
 
-   const setMaxValue = (value) => {
-      dispatch(updateMaxValue({ value, type }));
-      dispatch(clearDayProgress({ type }));
+   useEffect(() => {
+      dispatch(getDataTrening(type));
+   }, []);
+
+   const dataTrening = useSelector((state) => state.userTreningData[type]);
+
+   const setMaxValue = (maxValue) => {
+      dispatch(setLocalMaxValue({ maxValue, type }));
       message.success("Тренировка создана!", [1.5]);
    };
 
    const setDayProgress = (SumRepeat, day) => {
-      dispatch(updateDayProgress({ day, type }));
+      dispatch(setLocalDayProgress({ day, type }));
       message.success(`Вы выполнили ${SumRepeat} повторений!`, [5]);
    };
 
