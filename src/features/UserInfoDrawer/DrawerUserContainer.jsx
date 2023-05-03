@@ -1,21 +1,22 @@
 import { Drawer, Space } from "antd";
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useMemo } from "react";
+import { useDispatch } from "react-redux";
 import { CircleInfo } from "./components/CircleInfo/CircleInfo";
 import { UserParam } from "./components/UserParam/UserParam";
 import { BodyMass } from "./components/BodyMass/BodyMass";
 import { updateHeight, updateWeight } from "../../store/userSlice";
 import { excessWeight, indexMassBody } from "./helpers/indexMassBody";
 
-export const DrawerUserContainer = ({ openDrawer, setOpenDrawer }) => {
-   const userName = useSelector((state) => state.userData.userName);
-   const userHeight = useSelector((state) => state.userData.userHeight);
-   const userWeight = useSelector((state) => state.userData.userWeight);
-
-   const [textIndex, valueIndex, typeAlert] = indexMassBody(userHeight, userWeight);
-   const surplus = excessWeight(userHeight, userWeight, valueIndex);
-
+export const DrawerUserContainer = ({ user, openDrawer, setOpenDrawer }) => {
    const dispatch = useDispatch();
+
+   const [textIndex, bodyIndex, typeAlert] = useMemo(
+      () => indexMassBody(user.userHeight, user.userWeight),
+      [user.userHeight, user.userWeight]
+   );
+
+   const surplus = excessWeight(user.userHeight, user.userWeight, bodyIndex);
+
    const onChangeHeight = (valueHeight) => {
       dispatch(updateHeight({ valueHeight }));
    };
@@ -39,13 +40,13 @@ export const DrawerUserContainer = ({ openDrawer, setOpenDrawer }) => {
             direction={"vertical"}
             size={"middle"}
          >
-            <CircleInfo userName={userName} />
+            <CircleInfo userName={user.userName} />
             <UserParam
-               userWeight={userWeight}
-               userHeight={userHeight}
+               userWeight={user.userWeight}
+               userHeight={user.userHeight}
                onChangeHeight={onChangeHeight}
                onChangeWeight={onChangeWeight}
-               valueIndex={valueIndex}
+               bodyIndex={bodyIndex}
             />
             <BodyMass textIndex={textIndex} surplus={surplus} typeAlert={typeAlert} />
          </Space>

@@ -1,32 +1,61 @@
-import React, { useState } from "react";
+import React, { useReducer } from "react";
 import style from "./StartTrening.module.css";
 import { Button } from "antd";
 import { Repeats } from "../Repeats/Repeats";
 import { Exercise } from "../Exercise/Exercise";
 import { TestWorkout } from "../TestWorkout/TestWorkout";
 
-export const StartTrening = ({ rest, setMaxValue, approach, setDayProgress, dayProgress }) => {
-   const [exercise, setExercise] = useState(null);
-   const [timeTimer, setTimeTimer] = useState(null);
-   const [stastTrening, setStartTrening] = useState(false);
-   const [test, setTest] = useState(false);
+const initialArg = {
+   exercise: [],
+   timeOfExerise: null,
+   startTrening: false,
+   startTest: false,
+};
 
-   const dayActive = (index, el, rest) => {
-      if (dayProgress !== index) return null;
-      setExercise(el);
-      setTimeTimer(rest);
-      setStartTrening(true);
+const treningReducer = (state, action) => {
+   switch (action.type) {
+      case "currentExecise":
+         return {
+            ...state,
+            exercise: [...action.exercise],
+         };
+      case "setTimeExecise":
+         return {
+            ...state,
+            timeOfExerise: action.time,
+         };
+      case "toggleTrening":
+         return {
+            ...state,
+            startTrening: !state.startTrening,
+         };
+      case "toggleTest":
+         return {
+            ...state,
+            startTest: !state.startTest,
+         };
+   }
+};
+
+export const StartTrening = ({ rest, setMaxValue, approach, setDayProgress, dayProgress }) => {
+   const [state, dispatch] = useReducer(treningReducer, initialArg);
+
+   const dayActive = (dayIndex, el) => {
+      if (dayProgress !== dayIndex) return null;
+      dispatch({ type: "currentExecise", exercise: el });
+      dispatch({ type: "setTimeExecise", time: rest[dayIndex] });
+      dispatch({ type: "toggleTrening" });
    };
 
-   if (test) return <TestWorkout setTest={setTest} setMaxValue={setMaxValue} />;
+   if (state.startTest) return <TestWorkout dispatch={dispatch} setMaxValue={setMaxValue} />;
 
-   if (stastTrening)
+   if (state.startTrening)
       return (
          <Exercise
-            rest={timeTimer}
-            setStartTrening={setStartTrening}
+            rest={state.timeOfExerise}
+            dispatch={dispatch}
             setDayProgress={setDayProgress}
-            exercise={exercise}
+            exercise={state.exercise}
          />
       );
 
@@ -37,7 +66,7 @@ export const StartTrening = ({ rest, setMaxValue, approach, setDayProgress, dayP
                <React.Fragment key={i}>
                   <div className={style.dayBlock}>
                      <span
-                        onClick={() => dayActive(i, el, rest[i])}
+                        onClick={() => dayActive(i, el)}
                         className={dayProgress !== i ? style.day : style.dayActive}
                      >
                         День {i + 1}
@@ -60,7 +89,7 @@ export const StartTrening = ({ rest, setMaxValue, approach, setDayProgress, dayP
             <span className={style.textTest}>Выполните максимальное количество повторений</span>
             <Button
                disabled={dayProgress !== approach.length}
-               onClick={() => setTest(true)}
+               onClick={() => dispatch({ type: "toggleTest" })}
                className={style.buttonTest}
             >
                Итоговый тест

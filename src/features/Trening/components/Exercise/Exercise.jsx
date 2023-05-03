@@ -4,7 +4,7 @@ import { Repeats } from "../Repeats/Repeats";
 import { Button } from "antd";
 import { Timer } from "../Timer/Timer";
 
-export const Exercise = ({ rest, setStartTrening, exercise, setDayProgress }) => {
+export const Exercise = ({ dispatch, rest, exercise, setDayProgress }) => {
    const [current, setCurrent] = useState(0);
    const [count, setCount] = useState(exercise);
    const [timer, setTimer] = useState(false);
@@ -17,7 +17,7 @@ export const Exercise = ({ rest, setStartTrening, exercise, setDayProgress }) =>
 
       const sumRepeat = count.reduce((accum, currentValue) => accum + currentValue, 0);
       setDayProgress(sumRepeat, 1);
-      setStartTrening(false);
+      dispatch({ type: "toggleTrening" });
    };
 
    return (

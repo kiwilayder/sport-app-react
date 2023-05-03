@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import style from "./UserParam.module.css";
 import { InputNumber } from "antd";
 
-export const UserParam = ({ userHeight, userWeight, onChangeWeight, onChangeHeight, valueIndex }) => {
+export const UserParam = ({ userHeight, userWeight, onChangeWeight, onChangeHeight, bodyIndex }) => {
    const [showHeight, setShowHeight] = useState(false);
    const [showWeight, setShowWeight] = useState(false);
 
@@ -43,7 +43,7 @@ export const UserParam = ({ userHeight, userWeight, onChangeWeight, onChangeHeig
             )}
          </div>
 
-         <div className={style.item}>Индекс тела: {valueIndex}</div>
+         <div className={style.item}>Индекс тела: {bodyIndex}</div>
       </div>
    );
 };

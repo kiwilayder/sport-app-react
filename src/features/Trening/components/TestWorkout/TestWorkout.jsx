@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import style from "./TestWorkout.module.css";
-import { Button, InputNumber, Space } from "antd";
+import { Button, InputNumber } from "antd";
 
-export const TestWorkout = ({ setTest, setMaxValue }) => {
+export const TestWorkout = ({ dispatch, setMaxValue }) => {
    const [count, setCount] = useState(0);
    const [showInput, setShowInput] = useState(false);
 
    const finish = (count) => {
       setMaxValue(count);
-      if (setTest) setTest(false);
+      if (dispatch) return dispatch({ type: "toggleTest" });
    };
 
    return (

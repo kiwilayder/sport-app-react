@@ -2,6 +2,10 @@ import { StockOutlined, ThunderboltFilled, UserOutlined } from "@ant-design/icon
 import { Menu } from "antd";
 import style from "./SportFrameMenu.module.css";
 
+export const PUSH_UPS = "pushUps";
+export const PARAMETERS = "parameters";
+export const STAT = "stat";
+
 const getItem = (label, key, icon, children, type) => {
    return {
       key,
@@ -13,9 +17,9 @@ const getItem = (label, key, icon, children, type) => {
 };
 
 const items = [
-   getItem("Отжимания", "pushUps", <ThunderboltFilled />),
-   getItem("Мои параметры", "parameters", <UserOutlined />),
-   getItem("Статистика", "sub", <StockOutlined />, [getItem("Отжимания", "stat")]),
+   getItem("Отжимания", PUSH_UPS, <ThunderboltFilled />),
+   getItem("Мои параметры", PARAMETERS, <UserOutlined />),
+   getItem("Статистика", "sub", <StockOutlined />, [getItem("Отжимания", STAT)]),
 ];
 
 export const SportFrameMenu = ({ changeWorkout }) => (

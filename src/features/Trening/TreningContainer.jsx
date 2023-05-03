@@ -4,14 +4,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { message } from "antd";
 import { StartTrening } from "./components/StartTrening/StartTrening";
 import { calkApproach, calkRest } from "./helpers/calcTrening";
-import { getDataTrening, setLocalDayProgress, setLocalMaxValue } from "../../actions/localUserTrening";
+import { setLocalDayProgress, setLocalMaxValue } from "../../actions/localUserTrening";
+import { getDataTrening } from "../../actions/localUserTrening";
 
 export const TreningContainer = ({ type }) => {
    const dispatch = useDispatch();
 
    useEffect(() => {
       dispatch(getDataTrening(type));
-   }, []);
+   }, [type]);
 
    const dataTrening = useSelector((state) => state.userTreningData[type]);
 
@@ -20,8 +21,8 @@ export const TreningContainer = ({ type }) => {
       message.success("Тренировка создана!", [1.5]);
    };
 
-   const setDayProgress = (SumRepeat, day) => {
-      dispatch(setLocalDayProgress({ day, type }));
+   const setDayProgress = (SumRepeat) => {
+      dispatch(setLocalDayProgress(type));
       message.success(`Вы выполнили ${SumRepeat} повторений!`, [5]);
    };
 

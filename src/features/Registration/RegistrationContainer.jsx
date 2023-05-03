@@ -1,35 +1,34 @@
-import React, { useEffect, useState } from "react";
-import { setLocalUser } from "../../actions/localUser";
-import { useDispatch } from "react-redux";
+import React, { useEffect } from "react";
+import { getUser, setCategory, setUser } from "../../actions/localUser";
+import { useDispatch, useSelector } from "react-redux";
 import { SetCategory } from "./components/SetCategoryForm/SetCategory";
 import { RegistrationForm } from "./components/RegistrationForm/RegistrationForm";
 import { useNavigate } from "react-router-dom";
 
 export const RegistrationContainer = () => {
-   const [user, setUser] = useState();
-
    const dispatch = useDispatch();
    const navigate = useNavigate();
 
    useEffect(() => {
-      if (user?.category) {
-         dispatch(setLocalUser(user));
-         navigate("/sportroom");
-      }
-   }, [user]);
+      dispatch(getUser());
+   }, []);
+
+   const user = useSelector((state) => state.userData);
 
    const changeCategory = (category) => {
-      setUser((prevUser) => ({ ...prevUser, category }));
+      dispatch(setCategory(category));
    };
 
    const onFinishForm = (user) => {
-      user.dateBirth = user.dateBirth.format("DD.MM.YYYY");
-      setUser(user);
+      const userFormatDateBirth = { ...user, dateBirth: user.dateBirth.format("DD.MM.YYYY") };
+      dispatch(setUser(userFormatDateBirth));
    };
+
+   if (user.category) return navigate("/sportroom");
 
    return (
       <>
-         {!user ? (
+         {!user.userName ? (
             <RegistrationForm onFinishForm={onFinishForm} />
          ) : (
             <SetCategory changeCategory={changeCategory} />

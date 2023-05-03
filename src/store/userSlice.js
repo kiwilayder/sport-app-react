@@ -3,11 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 const userSlice = createSlice({
    name: "user",
    initialState: {
-      userName: "kiwilay",
+      userName: "",
       dateBirth: null,
       gender: null,
-      userHeight: 200,
-      userWeight: 90,
+      userHeight: null,
+      userWeight: null,
       category: null,
    },
    reducers: {
@@ -17,16 +17,18 @@ const userSlice = createSlice({
       updateWeight(state, action) {
          state.userWeight = action.payload.valueWeight;
       },
-      addUser(state, action) {
-         state.userName = action.payload.userName;
-         state.dateBirth = action.payload.dateBirth;
-         state.gender = action.payload.gender;
-         state.userHeight = action.payload.userHeight;
-         state.userWeight = action.payload.userWeight;
-         state.category = action.payload.category;
+      addUser(state, { payload }) {
+         state.userName = payload.userName;
+         state.dateBirth = payload.dateBirth;
+         state.gender = payload.gender;
+         state.userHeight = payload.userHeight;
+         state.userWeight = payload.userWeight;
+      },
+      setUserCategory(state, action) {
+         state.category = action.payload;
       },
    },
 });
 
-export const { addUser, updateHeight, updateWeight } = userSlice.actions;
+export const { addUser, updateHeight, updateWeight, setUserCategory } = userSlice.actions;
 export default userSlice.reducer;
