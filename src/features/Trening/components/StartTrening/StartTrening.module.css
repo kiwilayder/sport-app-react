@@ -1,17 +1,10 @@
 .trening {
    display: flex;
    flex-direction: column;
+   justify-content: space-between;
    height: 100%;
    width: 100%;
    padding: 5px 25px;
-}
-
-.dayBlock {
-   display: flex;
-   align-items: center;
-   height: 25%;
-   padding: 10px;
-   justify-content: space-between;
 }
 
 .finalTest {
@@ -25,9 +18,18 @@
    gap: 5px;
 }
 
+.dayBlock {
+   display: flex;
+   align-items: center;
+   height: 25%;
+   padding: 10px;
+   justify-content: space-between;
+}
+
 .textTest {
    color: rgba(255, 255, 255, 0.85);
    font-size: 15px;
+   text-align: center;
 }
 
 .textRepeats {
@@ -107,4 +109,36 @@
    height: 1px;
    background-color: rgba(255, 255, 255, 0.85);
    display: block;
+}
+
+@media (max-width: 580px) {
+   .trening {
+      padding: 10px;
+   }
+
+   .rest {
+      grid-template-columns: repeat(3, 1fr);
+   }
+   .finalTest {
+      height: 15%;
+   }
+
+   .day {
+      margin-right: 10px;
+      text-align: center;
+      border: 0px;
+      height: 60px;
+   }
+
+   .dayActive {
+      margin-right: 10px;
+      text-align: center;
+      border: 0px;
+      height: 60px;
+   }
+
+   .dayActive:hover {
+      color: rgba(255, 255, 255, 0.85);
+      background: transparent;
+   }
 }

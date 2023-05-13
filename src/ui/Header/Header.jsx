@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 export const Header = ({ getButton }) => {
    const { Header } = Layout;
    return (
-      <Header className={style.header}>
+      <Header className={getButton ? style.header : style.noButtonHeader}>
          <p className={style.logo}>WORK-UP</p>
 
          {getButton && (

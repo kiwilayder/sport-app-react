@@ -1,6 +1,11 @@
 .category {
    display: flex;
+   justify-content: center;
+   align-items: center;
    gap: 40px;
+   height: 100%;
+   width: 100%;
+   padding: 20px;
 }
 
 .card {
@@ -8,7 +13,7 @@
    flex-direction: column;
    gap: 10px;
    background: #0d0f11;
-   border-radius: 15px;
+   border-radius: 16px;
    justify-content: center;
    align-items: center;
    width: 290px;
@@ -37,4 +42,26 @@
 .button {
    margin-top: 20px;
    width: 150px;
+}
+
+@media (max-width: 900px) {
+   .category {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 10px;
+      padding: 20px;
+   }
+   .card {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: #0d0f11;
+      border-radius: 16px;
+      justify-content: center;
+      align-items: center;
+      width: 90%;
+      height: 33%;
+   }
 }

@@ -10,10 +10,17 @@
    justify-content: center;
    align-items: center;
    height: 100%;
+   margin-bottom: 30px;
 }
 
 .buttonGroup {
    display: flex;
    margin-top: 35px;
    gap: 10px;
+}
+
+@media (max-width: 580px) {
+   .timer {
+      margin-bottom: 120px;
+   }
 }

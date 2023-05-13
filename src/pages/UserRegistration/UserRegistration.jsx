@@ -4,9 +4,9 @@ import { Layout } from "antd";
 import { Header } from "../../ui/Header/Header";
 import { RegistrationContainer } from "../../features/Registration/RegistrationContainer";
 
-export const UserRegistration = () => {
-   const { Content } = Layout;
+const { Content } = Layout;
 
+export const UserRegistration = () => {
    return (
       <Layout className={style.layout}>
          <Header />

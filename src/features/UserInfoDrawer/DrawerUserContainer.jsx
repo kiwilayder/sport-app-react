@@ -1,34 +1,33 @@
 import { Drawer, Space } from "antd";
 import React, { useMemo } from "react";
 import { useDispatch } from "react-redux";
-import { CircleInfo } from "./components/CircleInfo/CircleInfo";
 import { UserParam } from "./components/UserParam/UserParam";
 import { BodyMass } from "./components/BodyMass/BodyMass";
-import { updateHeight, updateWeight } from "../../store/userSlice";
 import { excessWeight, indexMassBody } from "./helpers/indexMassBody";
+import { UserAvatar } from "./components/UserAvatar/UserAvatar";
+import { updateUserHeight, updateUserWeight } from "../../actions/localUser";
+import style from "./DrawerUserContainer.module.css";
 
 export const DrawerUserContainer = ({ user, openDrawer, setOpenDrawer }) => {
    const dispatch = useDispatch();
 
-   const [textIndex, bodyIndex, typeAlert] = useMemo(
-      () => indexMassBody(user.userHeight, user.userWeight),
-      [user.userHeight, user.userWeight]
-   );
+   const [textIndex, bodyIndex, typeAlert] = indexMassBody(user.userHeight, user.userWeight);
 
    const surplus = excessWeight(user.userHeight, user.userWeight, bodyIndex);
 
    const onChangeHeight = (valueHeight) => {
-      dispatch(updateHeight({ valueHeight }));
+      dispatch(updateUserHeight(valueHeight));
    };
    const onChangeWeight = (valueWeight) => {
-      dispatch(updateWeight({ valueWeight }));
+      dispatch(updateUserWeight(valueWeight));
    };
 
    return (
       <Drawer
+         rootClassName={style.drawer}
+         className={style.drawer}
          title="Мои параметры"
          placement={"right"}
-         width={500}
          onClose={() => setOpenDrawer(false)}
          open={openDrawer}
          extra={<></>}
@@ -40,7 +39,7 @@ export const DrawerUserContainer = ({ user, openDrawer, setOpenDrawer }) => {
             direction={"vertical"}
             size={"middle"}
          >
-            <CircleInfo userName={user.userName} />
+            <UserAvatar userName={user.userName} />
             <UserParam
                userWeight={user.userWeight}
                userHeight={user.userHeight}

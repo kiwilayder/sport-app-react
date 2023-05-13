@@ -3,8 +3,9 @@ import style from "./Exercise.module.css";
 import { Repeats } from "../Repeats/Repeats";
 import { Button } from "antd";
 import { Timer } from "../Timer/Timer";
+import { getDate } from "../../../../helpers/formatDate";
 
-export const Exercise = ({ dispatch, rest, exercise, setDayProgress }) => {
+export const Exercise = ({ toggleExecise, rest, exercise, setDayProgress }) => {
    const [current, setCurrent] = useState(0);
    const [count, setCount] = useState(exercise);
    const [timer, setTimer] = useState(false);
@@ -16,8 +17,8 @@ export const Exercise = ({ dispatch, rest, exercise, setDayProgress }) => {
       }
 
       const sumRepeat = count.reduce((accum, currentValue) => accum + currentValue, 0);
-      setDayProgress(sumRepeat, 1);
-      dispatch({ type: "toggleTrening" });
+      setDayProgress(sumRepeat, getDate(new Date()));
+      toggleExecise();
    };
 
    return (

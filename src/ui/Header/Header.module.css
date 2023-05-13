@@ -5,9 +5,27 @@
    justify-content: space-between;
    align-items: center;
 }
+.noButtonHeader {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: #0d0f11;
+}
 
 .logo {
    font-size: 25px;
    color: #fcba28;
    font-weight: bold;
+}
+
+@media (max-width: 740px) {
+   .header {
+      padding: 0 20px;
+   }
+   .noButtonHeader {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #0d0f11;
+   }
 }

@@ -1,5 +1,29 @@
 .menu {
-   display: flex;
    border-bottom-left-radius: 16px;
+   display: flex;
+   flex-direction: column;
    background: #141414;
+   height: 100%;
+}
+
+@media (max-width: 1030px) {
+   .menuFrame {
+      display: flex;
+      flex-direction: column;
+      background: #141414;
+      height: 100%;
+      position: absolute;
+      left: -250px;
+      top: 0px;
+      transition: transform 0.5s;
+   }
+
+   .isOpenMenu {
+      transform: translateX(125%);
+      display: flex;
+      z-index: 999;
+      flex-direction: column;
+      background: #141414;
+      height: 100%;
+   }
 }

@@ -1,40 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Line } from "@ant-design/plots";
 import style from "./StatisticsContainer.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { getDataTrening } from "../../actions/localUserTrening";
 
-export const DemoLine = () => {
-   const data = [
-      {
-         year: "1",
-         value: 3,
-      },
-      {
-         year: "2",
-         value: 5,
-      },
-      {
-         year: "3",
-         value: 9,
-      },
-      {
-         year: "4",
-         value: 11,
-      },
-      {
-         year: "5",
-         value: 14,
-      },
-      {
-         year: "6",
-         value: 14,
-      },
-   ];
+export const StatLine = ({ type }) => {
+   const dispatch = useDispatch();
+   useEffect(() => {
+      dispatch(getDataTrening("pushUps"));
+   }, [type]);
+
+   const data = useSelector((state) => state.userTreningData.pushUps.statProgress);
 
    const config = {
       data,
-      xField: "year",
-      yField: "value",
-      label: {},
+      xField: "date",
+      yField: "sumRepeat",
+      meta: {
+         sumRepeat: {
+            alias: "Повторений",
+         },
+      },
+      label: {
+         style: {
+            fontSize: 18,
+            fill: "white",
+         },
+      },
       point: {
          size: 5,
          shape: "circle",
@@ -44,19 +36,17 @@ export const DemoLine = () => {
             lineWidth: 2,
          },
       },
-      lineStyle: {
-         stroke: "#fcba28",
-         lineWidth: 3,
-      },
-
       tooltip: {
          showMarkers: false,
+      },
+      lineStyle: {
+         stroke: "#fcba28",
       },
       state: {
          active: {
             style: {
-               shadowBlur: 4,
-               stroke: "#fcba28",
+               shadowBlur: 0,
+               stroke: "#000",
                fill: "red",
             },
          },

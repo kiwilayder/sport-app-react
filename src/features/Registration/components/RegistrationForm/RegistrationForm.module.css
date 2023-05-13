@@ -1,7 +1,15 @@
 .form {
    width: 600px;
+}
+
+.bgform {
    display: flex;
-   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   height: 60%;
+   width: 700px;
+   background: #0d0f11;
+   border-radius: 16px;
 }
 
 .button {
@@ -14,12 +22,19 @@
    justify-content: center;
 }
 
-.bgform {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   height: 60%;
-   width: 700px;
-   background: #0d0f11;
-   border-radius: 45px;
+@media (max-width: 740px) {
+   .bgform {
+      display: flex;
+      padding: 30px;
+      justify-content: center;
+      align-items: center;
+      height: 70%;
+      width: 90%;
+      background: #0d0f11;
+      border-radius: 16px;
+   }
+
+   .formItem {
+      margin: 10px;
+   }
 }

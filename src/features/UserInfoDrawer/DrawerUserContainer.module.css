@@ -1,0 +1,10 @@
+.drawer {
+   right: 0 !important;
+   position: absolute;
+}
+
+@media (max-width: 600px) {
+   .drawer {
+      width: 100vw !important;
+   }
+}

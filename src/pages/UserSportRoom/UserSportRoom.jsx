@@ -7,9 +7,10 @@ import { DrawerUserContainer } from "../../features/UserInfoDrawer/DrawerUserCon
 import { getUser } from "../../actions/localUser";
 import { useDispatch, useSelector } from "react-redux";
 
+const { Content } = Layout;
+
 export const UserSportRoom = () => {
    const [openDrawer, setOpenDrawer] = useState(false);
-   const { Content } = Layout;
    const dispatch = useDispatch();
 
    useEffect(() => {

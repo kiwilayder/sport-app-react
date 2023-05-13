@@ -21,9 +21,9 @@ export const TreningContainer = ({ type }) => {
       message.success("Тренировка создана!", [1.5]);
    };
 
-   const setDayProgress = (SumRepeat) => {
-      dispatch(setLocalDayProgress(type));
-      message.success(`Вы выполнили ${SumRepeat} повторений!`, [5]);
+   const setDayProgress = (sumRepeat, todayDate) => {
+      dispatch(setLocalDayProgress({ type, sumRepeat, todayDate }));
+      message.success(`Вы выполнили ${sumRepeat} повторений!`, [5]);
    };
 
    if (dataTrening.maxValue) {

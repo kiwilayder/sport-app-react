@@ -3,10 +3,11 @@ import style from "./HomePage.module.css";
 import { Layout } from "antd";
 import { NavLink } from "react-router-dom";
 import { Header } from "../../ui/Header/Header";
+import { withAuthRederect } from "../../hoc/withAuthRederect";
 
 const { Content } = Layout;
 
-export const HomePage = () => {
+export const HomePage = withAuthRederect(() => {
    return (
       <Layout className={style.layout}>
          <Header getButton={true} />
@@ -19,4 +20,4 @@ export const HomePage = () => {
          </Content>
       </Layout>
    );
-};
+});

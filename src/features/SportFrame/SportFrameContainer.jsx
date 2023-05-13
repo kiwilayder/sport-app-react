@@ -1,26 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import style from "./SportFrameContainer.module.css";
 import { SportFrameHeader } from "./components/SportFrameHeader/SportFrameHeader";
 import { PARAMETERS, PUSH_UPS, STAT, SportFrameMenu } from "./components/SportFrameMenu/SportFrameMenu";
 import { EmptyTrening } from "../Trening/components/EmptyTrening/EmptyTrening";
 import { TreningContainer } from "../Trening/TreningContainer";
-import { getUser } from "../../actions/localUser";
-import { DemoLine } from "../Statistics/StatisticsContainer";
-import { useDispatch, useSelector } from "react-redux";
+import { StatLine } from "../Statistics/StatisticsContainer";
+import { useSelector } from "react-redux";
 
 export const SportFrameContainer = ({ setOpenDrawer }) => {
    const user = useSelector((state) => state.userData);
 
+   const [openMenu, setOpenMenu] = useState(false);
    const [component, setComponent] = useState(<EmptyTrening />);
 
    const changeWorkout = (key) => {
+      setOpenMenu(!openMenu);
       switch (key) {
          case PUSH_UPS:
             setComponent(<TreningContainer type={key} />);
             break;
 
          case STAT:
-            setComponent(<DemoLine />);
+            setComponent(<StatLine type={key} />);
             break;
 
          case PARAMETERS:
@@ -34,9 +35,9 @@ export const SportFrameContainer = ({ setOpenDrawer }) => {
 
    return (
       <div className={style.mainFrame}>
-         <SportFrameHeader userName={user.userName} />
+         <SportFrameHeader userName={user.userName} openMenu={openMenu} setOpenMenu={setOpenMenu} />
          <div className={style.traningWindow}>
-            <SportFrameMenu changeWorkout={changeWorkout} />
+            <SportFrameMenu changeWorkout={changeWorkout} openMenu={openMenu} />
             {component}
          </div>
       </div>
