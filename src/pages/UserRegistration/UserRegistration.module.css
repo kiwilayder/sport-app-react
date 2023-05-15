@@ -10,3 +10,9 @@
    align-items: center;
    justify-content: center;
 }
+
+@media (max-height: 760px) {
+   .layout {
+      height: 760px;
+   }
+}

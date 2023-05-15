@@ -7,16 +7,7 @@ const userTreningSlice = createSlice({
       pushUps: {
          maxValue: null,
          dayProgress: null,
-         statProgress: [
-            {
-               date: "10.05.2023",
-               sumRepeat: 10,
-            },
-            {
-               date: "11.05.2023",
-               sumRepeat: 15,
-            },
-         ],
+         statProgress: [],
       },
    },
    reducers: {

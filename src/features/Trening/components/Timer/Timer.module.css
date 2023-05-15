@@ -7,10 +7,10 @@
 .timer {
    display: flex;
    flex-direction: column;
-   justify-content: center;
+   justify-content: start;
    align-items: center;
    height: 100%;
-   margin-bottom: 30px;
+   margin-top: 20px;
 }
 
 .buttonGroup {
@@ -21,6 +21,13 @@
 
 @media (max-width: 580px) {
    .timer {
-      margin-bottom: 120px;
+      margin-bottom: 130px;
+   }
+}
+
+@media (min-width: 1200px) {
+   .timer {
+      justify-content: center;
+      margin-bottom: 100px;
    }
 }

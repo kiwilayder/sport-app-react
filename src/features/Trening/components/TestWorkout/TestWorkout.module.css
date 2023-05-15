@@ -21,6 +21,7 @@
    font-size: 100px;
    margin: 0 50px;
    cursor: pointer;
+   line-height: 80%;
 }
 
 .mainText {
@@ -28,7 +29,7 @@
    display: flex;
    align-items: center;
    flex-direction: column;
-   height: 35%;
+   height: 40%;
 }
 
 .mainFrame {
@@ -36,17 +37,21 @@
    flex-direction: column;
    width: 100%;
    align-items: center;
+   padding: 10px;
 }
 
 .title {
    color: #fcba28;
    font-size: 40px;
    margin: 0px 0 10px 0;
+   text-align: center;
+   line-height: 95%;
 }
 
 .subTitle {
    color: rgba(255, 255, 255, 0.85);
    font-size: 20px;
+   text-align: center;
 }
 
 .button {
@@ -63,9 +68,37 @@
    padding-top: 25px;
 }
 
+.changeCountWrapper {
+   height: 50%;
+   display: flex;
+   flex-direction: column;
+   justify-content: start;
+   align-items: center;
+}
+
 .changeCount {
-   height: 90px;
    display: flex;
    justify-content: center;
    align-items: center;
+}
+
+@media (max-width: 550px) {
+   .count {
+      margin: 0 20px;
+      font-size: 80px;
+   }
+
+   .sign {
+      font-size: 40px;
+      width: 80px;
+      height: 80px;
+   }
+
+   .input {
+      margin: 0 25px;
+      height: 80px;
+      width: 90px;
+      font-size: 50px;
+      padding-top: 25px;
+   }
 }

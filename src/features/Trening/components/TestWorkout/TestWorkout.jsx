@@ -17,35 +17,40 @@ export const TestWorkout = ({ toggleTest, setMaxValue }) => {
             <h1 className={style.title}>Тест на выносливость</h1>
             <span className={style.subTitle}>Выполните максимальное количество повторений</span>
          </div>
-         <div className={style.changeCount}>
-            <button onClick={() => setCount((prev) => (prev === 0 ? prev : --prev))} className={style.sign}>
-               -
-            </button>
+         <div className={style.changeCountWrapper}>
+            <div className={style.changeCount}>
+               <button
+                  onClick={() => setCount((prev) => (prev === 0 ? prev : --prev))}
+                  className={style.sign}
+               >
+                  -
+               </button>
 
-            {showInput ? (
-               <InputNumber
-                  className={style.input}
-                  onPressEnter={() => setShowInput(false)}
-                  autoFocus={true}
-                  onBlur={() => setShowInput(false)}
-                  min={0}
-                  max={200}
-                  size={"large"}
-                  onChange={(e) => setCount(e)}
-               />
-            ) : (
-               <div onClick={() => setShowInput(true)} className={style.count}>
-                  {count}
-               </div>
-            )}
+               {showInput ? (
+                  <InputNumber
+                     className={style.input}
+                     onPressEnter={() => setShowInput(false)}
+                     autoFocus={true}
+                     onBlur={() => setShowInput(false)}
+                     min={0}
+                     max={200}
+                     size={"large"}
+                     onChange={(e) => setCount(e)}
+                  />
+               ) : (
+                  <div onClick={() => setShowInput(true)} className={style.count}>
+                     {count}
+                  </div>
+               )}
 
-            <button onClick={() => setCount((prev) => ++prev)} className={style.sign}>
-               +
-            </button>
+               <button onClick={() => setCount((prev) => ++prev)} className={style.sign}>
+                  +
+               </button>
+            </div>
+            <Button onClick={() => finish(count)} className={style.button}>
+               Готово
+            </Button>
          </div>
-         <Button onClick={() => finish(count)} className={style.button}>
-            Готово
-         </Button>
       </div>
    );
 };

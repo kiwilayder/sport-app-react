@@ -9,8 +9,12 @@ export const WelcomeStartTest = ({ setMaxValue }) => {
    return (
       <div className={style.main}>
          <h1 className={style.welcome}>Добро пожаловать</h1>
-         <span className={style.line}>Перед началом тренировки. Выполни тест на выносливость.</span>
-         <span className={style.line}>Приложение создаст для тебя персональную программу тренировок.</span>
+         <div className={style.text}>
+            <span>
+               Перед началом тренировки. Выполни тест на выносливость. Приложение создаст для тебя
+               персональную программу тренировок.
+            </span>
+         </div>
          <div className={style.border}>
             <h2 className={style.title}>Для максимального результата</h2>
             <ul className={style.list}>

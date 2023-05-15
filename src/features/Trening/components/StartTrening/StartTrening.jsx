@@ -95,14 +95,18 @@ export const StartTrening = ({ rest, setMaxValue, approach, setDayProgress, dayP
                })}
 
                <div className={style.finalTest}>
-                  <span className={style.textTest}>Выполните максимальное количество повторений</span>
-                  <Button
-                     disabled={dayProgress !== approach.length}
-                     onClick={() => dispatch({ type: "toggleTest" })}
-                     className={style.buttonTest}
-                  >
-                     Итоговый тест
-                  </Button>
+                  <div className={style.areaTextTest}>
+                     <span className={style.textTest}>Выполните максимальное количество повторений</span>
+                  </div>
+                  <div>
+                     <Button
+                        disabled={dayProgress !== approach.length}
+                        onClick={() => dispatch({ type: "toggleTest" })}
+                        className={style.buttonTest}
+                     >
+                        Итоговый тест
+                     </Button>
+                  </div>
                </div>
             </div>
          );
